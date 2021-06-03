@@ -1,10 +1,10 @@
 # Real-Time Face Detection using OpenCV
-## OpenCV
+## What is OpenCV ?
 OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library. The library has more than 2500 optimized algorithms, which includes a comprehensive set of both classic and state-of-the-art computer vision and machine learning algorithms. 
 
 These algorithms can be used to detect and recognize faces, identify objects, classify human actions in videos, track camera movements, track moving objects, extract 3D models of objects, produce 3D point clouds from stereo cameras, stitch images together to produce a high resolution image of an entire scene, find similar images from an image database, remove red eyes from images taken using flash, follow eye movements, recognize scenery and establish markers to overlay it with augmented reality, etc.
 
-## Face Detection
+## What is Face Detection ?
 Face detection is a computer technology being used in a variety of applications that identifies human faces in digital images. The algorithms focus on the detection of frontal human faces. It is analogous to image detection in which the image of a person is matched bit by bit. Image matches with the image stores in database. Any facial feature changes in the database will invalidate the matching process.
 
 ```OpenCV``` contains many pre-trained classifiers for face, eyes, smile etc. The XML files of pre-trained classifiers are stored in ```opencv/data/```. For face detection specifically, there are two pre-trained classifiers:
@@ -14,7 +14,7 @@ Face detection is a computer technology being used in a variety of applications 
 
 We will explore only Haar Cascade Classifier here.
 
-## Haar Cascade Classifier
+## What is Haar Cascade Classifier
 
 It is a machine learning based approach where a cascade function is trained from a lot of positive (images with face) and negative images (images without face). The algorithm is proposed by Paul Viola and Michael Jones.
 
@@ -149,6 +149,8 @@ cap.release()  # Realise the webcam
 cv2.destroyAllWindows()  # Destroy all the windows
 ```
 
+## Note
+Some of the function that you saw you can find it in the documantation.
 
 ## References
 * [About OpenCV](https://opencv.org/about/)
