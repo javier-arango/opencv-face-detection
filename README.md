@@ -1,4 +1,5 @@
 # Real-Time Face Detection using OpenCV
+> This project was written in Python
 ## What is OpenCV ?
 OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library. The library has more than 2500 optimized algorithms, which includes a comprehensive set of both classic and state-of-the-art computer vision and machine learning algorithms. 
 
@@ -149,8 +150,12 @@ cap.release()  # Realise the webcam
 cv2.destroyAllWindows()  # Destroy all the windows
 ```
 
-## Note
-Some of the function that you saw you can find it in the documantation.
+## Note :pencil:
+* Some of the function that you saw were created by me and you can find it in the documantation.
+* If you don't have OpenCV install in your computer you can do it by typing ```pip install opencv-python``` or ```pip3 install opencv-python``` in your Terminal.
+* If you don't have Numpy install in your computer you can do it by typing ```pip install numpy``` or ```pip3 install numpy``` in your Terminal.
+* (I'm using a virtual environment [Anaconda](https://docs.anaconda.com/anaconda/install/) to install all the packages).
+* This is one of the easiest and simplest ways to use OpenCV Face Detection. There are more things to learn about it so you can make the best with it. With this technology you can create amazing things.
 
 ## References
 * [About OpenCV](https://opencv.org/about/)
