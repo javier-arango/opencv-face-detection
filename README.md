@@ -28,7 +28,7 @@ It is a machine learning based approach where a cascade function is trained from
 
 4. ```Cascading Classifiers:``` Now we can use the relevant features to classify a face from a non-face but algorithm provides another improvement using the concept of cascades of classifiers. Every region of the image is not a facial region so it is not useful to apply all the features on all the regions of the image. Instead of using all the features at a time, group the features into different stages of the classifier.Apply each stage one-by-one to find a facial region. If on any stage the classifier fails, that region will be discarded from further iterations. Only the facial region will pass all the stages of the classifier.
 
-### How to use the algorithm:
+## How to use the Algorithm:
 1. We first need to import some libraries.
 ```ruby
 # Import libraries
@@ -38,15 +38,15 @@ import numpy as np
 2. We need to get the video capture from the webcam
 ```ruby
 # Video capture using WebCam
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)  # The 0 means the first webcam that you have, if you have more webcam that you want to use you could put 1, 2, or 3... 
         
 # print a feedback
 print('Camera On')
 ```
-3. We need to load the haar cascade clasifier
+3. We need to load the haar cascade clasifier (We could do this before step 2)
 ```ruby
 # Load face detection classifier
-# Load face detection classifier ~ Path to face & eye cascade
+# Load face detection classifier ~ Path to face cascade
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")  # Pre train model
 ```
 4. We need to get frame by frame from the web cam capture
@@ -102,7 +102,7 @@ cap.release()  # Realise the webcam
 cv2.destroyAllWindows()  # Destroy all the windows
 ```
 
-#### Final Code
+## Final Code
 ```ruby
 # Import libraries
 import cv2
@@ -118,7 +118,35 @@ print('Camera On')
 # Load face detection classifier ~ Path to face & eye cascade
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")  # Pre train model
 
-
+while True:
+  # Original frame ~ Video frame from camera
+  ret, frame = cap.read()  # Return value (true or false) if the capture work, video frame
+  
+  # Convert original frame to gray
+  gray = FrameEditing.convert_frame_to_gray(frame)
+  
+  # Get location of the faces in term of position
+  # Return a rectangle (x_pos, y_pos, width, height)
+  faces = face_cascade.detectMultiScale(gray, scale_factor, min_neighbors, minSize=(30, 30), flags=cv2.CASCADE_SCALE_IMAGE) 
+  
+  # Detect faces
+  for (x, y, w, h) in faces:
+     # Draw rectangle in the face
+     FrameDrawing.draw_rect(frame, (x, y), (x+w, y+h), (255, 53, 18), line_thickness)  # Rect for the face
+     
+  # Load video frame
+  cv2.imshow('Video Frame', frame)
+  
+  # Wait 1 millisecond second until q key is press
+  # Get a frame every 1 millisecond
+  if cv2.waitKey(1) == ord('q'):
+     # Print feedback
+     print('Camera Off')
+     break
+     
+# Close windows
+cap.release()  # Realise the webcam
+cv2.destroyAllWindows()  # Destroy all the windows
 ```
 
 
