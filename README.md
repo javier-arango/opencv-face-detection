@@ -15,7 +15,7 @@ Face detection is a computer technology being used in a variety of applications 
 
 We will explore only Haar Cascade Classifier here.
 
-## What is Haar Cascade Classifier
+## What is the Haar Cascade Classifier ?
 
 It is a machine learning based approach where a cascade function is trained from a lot of positive (images with face) and negative images (images without face). The algorithm is proposed by Paul Viola and Michael Jones.
 
