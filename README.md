@@ -59,7 +59,7 @@ while True:
 5. We need to convert original frame to a gray frame
 ```ruby
 # Convert original frame to gray
-gray = FrameEditing.convert_frame_to_gray(frame)
+gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 ```
 6. Get the face position
 ```ruby
@@ -72,7 +72,7 @@ faces = face_cascade.detectMultiScale(gray, scale_factor, min_neighbors, minSize
 # Detect faces
 for (x, y, w, h) in faces:
   # Draw rectangle in the face
-  FrameDrawing.draw_rect(frame, (x, y), (x+w, y+h), (255, 53, 18), line_thickness)  # Rect for the face
+  cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 53, 18), 2)  # Rect for the face
 ```
 8. We need to load the frames and show it into the screen
 ```ruby
@@ -116,16 +116,16 @@ while True:
   ret, frame = cap.read()  # Return value (true or false) if the capture work, video frame
   
   # Convert original frame to gray
-  gray = FrameEditing.convert_frame_to_gray(frame)
+  gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
   
   # Get location of the faces in term of position
   # Return a rectangle (x_pos, y_pos, width, height)
-  faces = face_cascade.detectMultiScale(gray, scale_factor, min_neighbors, minSize=(30, 30), flags=cv2.CASCADE_SCALE_IMAGE) 
+  faces = face_cascade.detectMultiScale(gray, 1.2, 5, minSize=(30, 30), flags=cv2.CASCADE_SCALE_IMAGE) 
   
   # Detect faces
   for (x, y, w, h) in faces:
      # Draw rectangle in the face
-     FrameDrawing.draw_rect(frame, (x, y), (x+w, y+h), (255, 53, 18), line_thickness)  # Rect for the face
+     cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 53, 18), 2)  # Rect for the face
      
   # Load video frame
   cv2.imshow('Video Frame', frame)
