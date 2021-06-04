@@ -62,14 +62,6 @@ while True:
 gray = FrameEditing.convert_frame_to_gray(frame)
 ```
 6. Get the face position
-```
-cascade.detectMultiScale(frame, scaleFactor, minNeighbors, minSize=Optional, maxSize=Optional)
-   frame: have to be a gray frame bc most of the model are train with gray frame
-   scaleFactor: parameter specifying how much the image size is reduced at each image scale. 1.05 is a good possible value for this, which means you use a small step for resizing, i.e. reduce size by 5%, you increase the chance of a matching size with the model for detection is found. (We have to scale the image bc the model has a fixed size defined during training).
-   minNeighbors: parameter specifying how many neighbors each candidate rectangle should have to retain it. This parameter will affect the quality of the detected faces. Higher value results in less detections but with higher quality. 3~6 is a good value for it. (This is the quality for detecting faces)
-   minSize: minimum possible object size. Objects smaller than that are ignored. This parameter determine how small size you want to detect. Usually, [30, 30] is a good start for face detection. (Optional ~ This is the min size we want to detect a face in a frame)
-   maxSize: maximum possible object size. Objects bigger than this are ignored. This parameter determine how big size you want to detect. Usually, you don't need to set it manually, the default value assumes you want to detect without an upper limit on the size of the face. (Optional ~ This is the max size we want to detect a face in a frame)
-```
 ```ruby
 # Get location of the faces in term of position
 # Return a rectangle (x_pos, y_pos, width, height)
