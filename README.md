@@ -143,7 +143,7 @@ cv2.destroyAllWindows()  # Destroy all the windows
 ```
 
 ## Note :pencil:
-* Some of the function that you saw were created by me and you can find it in the documantation.
+* In this project, I added some things differently like combining four frames into one, show only the skin color, draw the coordinates and size into the screen, and more.
 * If you don't have OpenCV install in your computer you can do it by typing ```pip install opencv-python``` or ```pip3 install opencv-python``` in your Terminal.
 * If you don't have Numpy install in your computer you can do it by typing ```pip install numpy``` or ```pip3 install numpy``` in your Terminal.
 * (I'm using a virtual environment [Anaconda](https://docs.anaconda.com/anaconda/install/) to install all the packages).
