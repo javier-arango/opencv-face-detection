@@ -1,12 +1,12 @@
 # Real-Time Face Detection using OpenCV
 > This project was written in Python
 ## What is OpenCV ?
-OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library. The library has more than 2500 optimized algorithms, which includes a comprehensive set of both classic and state-of-the-art computer vision and machine learning algorithms. 
+OpenCV (Open Source Computer Vision Library) is a free and open source software library for computer vision and machine learning. More than 2500 optimized algorithms are included in the library, which contains a comprehensive mix of both classic and cutting-edge computer vision and machine learning techniques. 
 
 These algorithms can be used to detect and recognize faces, identify objects, classify human actions in videos, track camera movements, track moving objects, extract 3D models of objects, produce 3D point clouds from stereo cameras, stitch images together to produce a high resolution image of an entire scene, find similar images from an image database, remove red eyes from images taken using flash, follow eye movements, recognize scenery and establish markers to overlay it with augmented reality, etc.
 
 ## What is Face Detection ?
-Face detection is a computer technology being used in a variety of applications that identifies human faces in digital images. The algorithms focus on the detection of frontal human faces. It is analogous to image detection in which the image of a person is matched bit by bit. Image matches with the image stores in database. Any facial feature changes in the database will invalidate the matching process.
+Face detection is a computer technique that recognizes human faces in digital images and is used in a range of applications. The algorithms are designed to recognize frontal human faces. It's similar to image detection, where a person's image is matched bit by bit. The image is identical to the image stored in the database. Any changes to the database's facial features will render the matching process ineffective.
 
 ```OpenCV``` contains many pre-trained classifiers for face, eyes, smile etc. The XML files of pre-trained classifiers are stored in ```opencv/data/```. For face detection specifically, there are two pre-trained classifiers:
 
@@ -17,17 +17,17 @@ We will explore only Haar Cascade Classifier here.
 
 ## What is the Haar Cascade Classifier ?
 
-It is a machine learning based approach where a cascade function is trained from a lot of positive (images with face) and negative images (images without face). The algorithm is proposed by Paul Viola and Michael Jones.
+It's a machine-learning-based methodology in which a cascade function is learned using a large number of positive (face-based) and negative (non-face-based) images (images without face). Paul Viola and Michael Jones proposed the algorithm.
 
 #### The algorithm has four stages:
 
-1. ```Haar Feature Selection:``` Haar features are calculated in the subsections of the input image. The difference between the sum of pixel intensities of adjacent rectangular regions is calculated to differentiate the subsections of the image. A large number of haar-like features are required for getting facial features.
+1. ```Haar Feature Selection:``` Haar features are calculated in the input image's subsections. To distinguish the image's subsections, the difference between the sum of pixel intensities of adjacent rectangular regions is calculated. Obtaining facial features necessitates a large number of haar-like features.
 
 2. ```Creating an Integral Image:``` Too much computation will be done when operations are performed on all pixels, so an integral image is used that reduce the computation to only four pixels. This makes the algorithm quite fast.
 
 3. ```Adaboost:``` All the computed features are not relevant for the classification purpose. Adaboost is used to classify the relevant features.
 
-4. ```Cascading Classifiers:``` Now we can use the relevant features to classify a face from a non-face but algorithm provides another improvement using the concept of cascades of classifiers. Every region of the image is not a facial region so it is not useful to apply all the features on all the regions of the image. Instead of using all the features at a time, group the features into different stages of the classifier.Apply each stage one-by-one to find a facial region. If on any stage the classifier fails, that region will be discarded from further iterations. Only the facial region will pass all the stages of the classifier.
+4. ```Cascading Classifiers:``` We can now classify a face from a non-face using relevant information, but the technique gives additional enhancement by utilizing the concept of cascades of classifiers. Because every region of the image is not a facial region, applying all of the features to every region of the image is pointless. Rather than using all of the features at once, divide them into distinct phases of the classifier. To find a facial region, apply each stage one at a time. If the classifier fails at any point throughout the process, that region will be skipped over in subsequent iterations. Only the facial region will pass all of the classifier's stages.
 
 ## How to use the Algorithm:
 1. We first need to import some libraries.
