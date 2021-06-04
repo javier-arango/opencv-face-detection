@@ -147,6 +147,7 @@ cv2.destroyAllWindows()  # Destroy all the windows
 * If you don't have OpenCV install in your computer you can do it by typing ```pip install opencv-python``` or ```pip3 install opencv-python``` in your Terminal.
 * If you don't have Numpy install in your computer you can do it by typing ```pip install numpy``` or ```pip3 install numpy``` in your Terminal.
 * (I'm using a virtual environment [Anaconda](https://docs.anaconda.com/anaconda/install/) to install all the packages).
+* The ```config``` folder contain methods to edit the video frame and to draw into the frame.
 * This is one of the easiest and simplest ways to use OpenCV Face Detection. There are more things to learn about it so you can make the best with it. With this technology you can create amazing things.
 
 ## References
