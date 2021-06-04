@@ -4,14 +4,16 @@ from config.frame_drawing import FrameDrawing
 from config.frame_editing import FrameEditing
 
 
+# This is just a class to find the width and height of the frame
 class FindValues:
     # Get frame width and height
     @staticmethod
     def get_frame_width_height(frame):
         # Return width and height
         return frame.shape[1], frame.shape[0]
-
-
+    
+    
+# This is the class that contain the face detection algorithm
 class FaceDetection:
     # Face detection ~ Detect human face
     @staticmethod
@@ -61,6 +63,7 @@ class FaceDetection:
             FrameDrawing.draw_text(frame, 'Coordinate: {} - Size: {}'.format((x, y), (w, h)), (width // 25, height // 10), cv2.FONT_HERSHEY_PLAIN, 1, (0, 0, 0), 1)
 
 
+# This is the Main Class ~ This class will show you the Video Frame with the live face detection 
 class LiveFaceDetection:
     def __init__(self):
         # Live face detection
@@ -87,7 +90,7 @@ class LiveFaceDetection:
         # print a feedback
         print('Camera On')
 
-        # Load face detection classifier
+        # Load face detection classifier ~ I put this here because I didn't want to load it everytime I run the FaceDetection class
         # Load face detection classifier ~ Path to face & eye cascade
         face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")  # Pre train model
 
@@ -98,23 +101,24 @@ class LiveFaceDetection:
 
             # Edited Frames
             small_frame = FrameEditing.scale_frame(frame, 0.5, 0.5)  # Make original frame smaller by half
+            # Please uncomment one or both of this if you want to use it
             # hsv_frame = FrameEditing.convert_frame_to_hsv(small_frame)  # Convert BGR color into HSV color
             # gray_frame = FrameEditing.convert_frame_to_gray(small_frame)  # Convert BGR color into Gray scale color
 
-            # Get video width and height
+            # Get video width and height ~ Please uncomment this if you want to see fur frame in one
             # width, height = FindValues.get_frame_width_height(frame)
 
-            # Show certain colors that you want
+            # Show certain colors that you want ~ Please uncomment this if you want to see only the skin color in the frame
             # skin_color = FrameEditing.show_skin_color(small_frame, hsv_frame, [0, 58, 30], [33, 255, 255])
 
             # Face & Eye detection
             FaceDetection.face_detection(small_frame, face_cascade, scale_factor=1.2, min_neighbors=5, line_thickness=2)
 
-            # Combine frame
+            # Combine frame ~ Please uncomment one of this if you want to see two or fur frame in one
             # two_frame_combined = FrameEditing.combine_two_frame(small_frame, skin_color)  # Show two frame next to each other horizontally
             # four_frame_combine = FrameEditing.combine_four_frame(frame, width, height, small_frame, hsv_frame, skin_color, gray_frame)
 
-            # Load video frame
+            # Load video frame ~ Please put here the frame that you will like to see
             cv2.imshow('Video Frame', small_frame)
 
             # Wait 1 millisecond second until q key is press
@@ -124,11 +128,10 @@ class LiveFaceDetection:
                 break
 
         # Close windows
-        # frame.release()  # Realise the drone camera
         cap.release()  # Realise the webcam
         cv2.destroyAllWindows()  # Destroy all the windows
 
 
 if __name__ == '__main__':
-    # Webcam test
-    webcam = LiveFaceDetection()
+    # Face detecton - Webcam test
+    face_detection = LiveFaceDetection()
