@@ -44,7 +44,7 @@ cap = cv2.VideoCapture(0)  # The 0 means the first webcam that you have, if you 
 # print a feedback
 print('Camera On')
 ```
-3. We need to load the haar cascade clasifier (We could do this before step 2)
+3. We need to load the haar cascade classifier (We could do this before step 2)
 ```ruby
 # Load face detection classifier
 # Load face detection classifier ~ Path to face cascade
